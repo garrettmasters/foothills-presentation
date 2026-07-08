@@ -643,7 +643,7 @@ const slides = [
   {
     section: "Process", steps: 2,
     notes: [
-      "3,909 of these tasks exist in the system right now.",
+      "4,027 of these tasks exist in the system right now.",
       "Click: 2,262 have not been started. Some are a few days overdue. Some are over seven years overdue.",
       "Click: of those, 1,843 have no one assigned at all. Say it clearly: it is not that someone is behind on their list. For most of these, there is no list with their name on it.",
     ],
@@ -652,7 +652,7 @@ const slides = [
         <Eyebrow>The scale of it</Eyebrow>
         <div style={{ display: "flex", flexDirection: "column", gap: 34 }}>
           <div>
-            <Big size="clamp(46px, 7.5vw, 96px)"><CountUp value={3909} /></Big>
+            <Big size="clamp(46px, 7.5vw, 96px)"><CountUp value={4027} /></Big>
             <Caption>follow up tasks exist in the system right now</Caption>
           </div>
           <Reveal on={s >= 1}>
