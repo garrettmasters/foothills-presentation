@@ -710,7 +710,7 @@ const slides = [
     section: "Process", steps: 2,
     notes: [
       "That shared serve form is not the only one. There are twenty five separate serve forms across ministries.",
-      "Click: here is why. The form technology cannot preselect a ministry from a link. So instead of one form that a link could point into, every serve opportunity got its own form. A technology limitation created twenty five forms and all the work that comes with them.",
+      "Click: so why 25? Is there no defined process? No owner? Or is it a technology constraint? It's the last one: the form tool cannot preselect a ministry from a link. So instead of one form a link could point into, every serve opportunity got its own form, and all the work that comes with each.",
       "Click: and on the main form, some selections have no queue behind them at all. Pick one of these today and nothing happens. No one is notified. No one follows up.",
     ],
     render: (s) => (
@@ -723,8 +723,19 @@ const slides = [
           </Headline>
         </div>
         <Reveal on={s >= 1}>
-          <div style={{ fontFamily: SERIF, fontSize: "clamp(16px, 2vw, 22px)", color: C.ink2, lineHeight: 1.6, marginBottom: 30, maxWidth: 780 }}>
-            Why? The form technology can't preselect a ministry from a link. So every serve opportunity got its own form instead. A technology limitation created 25 forms, and all the process and staff work that comes with each one.
+          <div style={{ marginBottom: 30, maxWidth: 780 }}>
+            <div style={{ fontFamily: SERIF, fontSize: "clamp(24px, 3.2vw, 38px)", fontStyle: "italic", color: C.ink, marginBottom: 18 }}>
+              Why?
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {["No defined process?", "No owner?", "A technology constraint?"].map((q, i) => (
+                <Reveal key={q} on={s >= 1} delay={140 + i * 120}>
+                  <div style={{ fontFamily: SERIF, fontSize: "clamp(17px, 2.1vw, 24px)", color: C.ink2, lineHeight: 1.4 }}>
+                    {q}
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </Reveal>
         <Reveal on={s >= 2}>
