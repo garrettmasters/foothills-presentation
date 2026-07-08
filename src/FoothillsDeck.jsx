@@ -804,7 +804,7 @@ const slides = [
   {
     section: "Communication", steps: 1,
     notes: [
-      "And even when we do try to reach people, CCB unsubscribe is all or nothing. Opt out of one ministry's emails and you're out of everything. Technically they can resubscribe, but it's buried deep enough that as far as we can tell no one has, so in practice it's permanent.",
+      "And even when we do try to reach people, CCB unsubscribe is all or nothing. Opt out of one ministry's emails and you're out of everything. There is technically a way to resubscribe, but it's hard enough to get to that no one really does, so in practice it sticks.",
       "Click: somewhere between 1,500 and 2,000 people are currently unreachable by email through any ministry at all.",
       "The survey flagged the same thing on the text side. People who texted STOP once have no way to sign back up. And CCB does not even keep a record of text opt outs, so we cannot count that number.",
     ],
@@ -817,7 +817,7 @@ const slides = [
         <Reveal on={s >= 1}>
           <Big size="clamp(52px, 9vw, 120px)" warn>~2,000</Big>
           <Caption>
-            people are unreachable by email through <strong style={{ color: C.ink }}>any</strong> ministry. Technically they can resubscribe — but it's buried deep enough in CCB that, as far as we can tell, <strong style={{ color: C.ink }}>no one has</strong>.
+            people are unreachable by email through <strong style={{ color: C.ink }}>any</strong> ministry. There is technically a way back in, but it's hard enough to find that <strong style={{ color: C.ink }}>no one really does</strong>.
             <br />Sign up for something new? The confirmation and every email after it will never arrive.
           </Caption>
         </Reveal>
