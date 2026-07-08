@@ -8,8 +8,8 @@ A leadership presentation for Foothills Church covering findings from the commun
 
 - `→` / `Space` — advance to the next slide
 - `←` — go back
-- `N` — toggle speaker notes
-- `H` — hide the notes UI entirely (the "Notes" button and panel) so nothing shows when presenting on a shared screen; press `H` again or `N` to bring it back
+- `H` — reveal speaker notes (hidden by default so nothing shows when presenting on a shared screen); press `H` again to hide
+- `N` — toggle the notes panel once revealed
 
 ## Development
 

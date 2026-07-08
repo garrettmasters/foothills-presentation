@@ -2,7 +2,8 @@ import { useState, useEffect, useRef, useCallback } from "react";
 
 /* ────────────────────────────────────────────────────────────────
    Foothills Leadership Deck
-   Click / → / space to advance · ← to go back · N toggles notes · H hides the notes UI (button + panel)
+   Click / → / space to advance · ← to go back
+   Notes are hidden by default — press H to reveal them (secret), H again to hide
    Palette + type match the Communication Survey report.
 ──────────────────────────────────────────────────────────────── */
 
@@ -1007,7 +1008,7 @@ export default function FoothillsDeck() {
   const [idx, setIdx] = useState(0);
   const [step, setStep] = useState(0);
   const [notesOpen, setNotesOpen] = useState(false);
-  const [notesHidden, setNotesHidden] = useState(false);
+  const [notesHidden, setNotesHidden] = useState(true);
 
   const slide = slides[idx];
   const total = slides.length;
@@ -1027,7 +1028,13 @@ export default function FoothillsDeck() {
       if (e.key === "ArrowRight" || e.key === " " || e.key === "Enter") { e.preventDefault(); next(); }
       else if (e.key === "ArrowLeft") { e.preventDefault(); prev(); }
       else if (e.key === "n" || e.key === "N") { setNotesHidden(false); setNotesOpen((o) => !o); }
-      else if (e.key === "h" || e.key === "H") { setNotesOpen(false); setNotesHidden((h) => !h); }
+      else if (e.key === "h" || e.key === "H") {
+        setNotesHidden((h) => {
+          const nowHidden = !h;
+          setNotesOpen(!nowHidden); // reveal → open the notes panel; hide → close it
+          return nowHidden;
+        });
+      }
       else if (e.key === "Home") { setIdx(0); setStep(0); }
     };
     window.addEventListener("keydown", onKey);
@@ -1116,7 +1123,7 @@ export default function FoothillsDeck() {
           }}
         >
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#8a8a84", marginBottom: 10 }}>
-            Talking points · slide {idx + 1} · press H to hide notes UI
+            Talking points · slide {idx + 1} · press H to hide
           </div>
           {slide.notes.map((n, i) => (
             <p key={i} style={{ fontFamily: SERIF, fontSize: 15.5, lineHeight: 1.6, margin: "0 0 10px" }}>{n}</p>
