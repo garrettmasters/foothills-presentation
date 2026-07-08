@@ -644,7 +644,7 @@ const slides = [
     section: "Process", steps: 2,
     notes: [
       "3,909 of these tasks exist in the system right now.",
-      "Click: 2,285 have not been started. Some are a few days overdue. Some are over seven years overdue.",
+      "Click: 2,262 have not been started. Some are a few days overdue. Some are over seven years overdue.",
       "Click: of those, 1,843 have no one assigned at all. Say it clearly: it is not that someone is behind on their list. For most of these, there is no list with their name on it.",
     ],
     render: (s) => (
@@ -656,7 +656,7 @@ const slides = [
             <Caption>follow up tasks exist in the system right now</Caption>
           </div>
           <Reveal on={s >= 1}>
-            <Big size="clamp(46px, 7.5vw, 96px)" warn>2,285</Big>
+            <Big size="clamp(46px, 7.5vw, 96px)" warn>2,262</Big>
             <Caption>have not been started, some a few days overdue, some <strong style={{ color: C.warn }}>over 7 years</strong> overdue</Caption>
           </Reveal>
           <Reveal on={s >= 2}>
