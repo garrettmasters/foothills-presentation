@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "vite-dev",
+      "runtimeExecutable": "/Users/garrettmasters/Sites/Foothills-presentation/.claude/run-dev.sh",
+      "runtimeArgs": [],
+      "port": 5173
+    }
+  ]
+}
