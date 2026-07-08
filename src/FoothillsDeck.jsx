@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 
 /* ────────────────────────────────────────────────────────────────
    Foothills Leadership Deck
-   Click / → / space to advance · ← to go back · N toggles notes · H hides notes
+   Click / → / space to advance · ← to go back · N toggles notes · H hides the notes UI (button + panel)
    Palette + type match the Communication Survey report.
 ──────────────────────────────────────────────────────────────── */
 
@@ -1007,6 +1007,7 @@ export default function FoothillsDeck() {
   const [idx, setIdx] = useState(0);
   const [step, setStep] = useState(0);
   const [notesOpen, setNotesOpen] = useState(false);
+  const [notesHidden, setNotesHidden] = useState(false);
 
   const slide = slides[idx];
   const total = slides.length;
@@ -1025,8 +1026,8 @@ export default function FoothillsDeck() {
     const onKey = (e) => {
       if (e.key === "ArrowRight" || e.key === " " || e.key === "Enter") { e.preventDefault(); next(); }
       else if (e.key === "ArrowLeft") { e.preventDefault(); prev(); }
-      else if (e.key === "n" || e.key === "N") setNotesOpen((o) => !o);
-      else if (e.key === "h" || e.key === "H") setNotesOpen(false);
+      else if (e.key === "n" || e.key === "N") { setNotesHidden(false); setNotesOpen((o) => !o); }
+      else if (e.key === "h" || e.key === "H") { setNotesOpen(false); setNotesHidden((h) => !h); }
       else if (e.key === "Home") { setIdx(0); setStep(0); }
     };
     window.addEventListener("keydown", onKey);
@@ -1088,17 +1089,19 @@ export default function FoothillsDeck() {
         <div style={{ fontSize: 12, color: C.ink3, fontVariantNumeric: "tabular-nums", whiteSpace: "nowrap" }}>
           {idx + 1} / {total}
         </div>
-        <button
-          onClick={() => setNotesOpen((o) => !o)}
-          style={{
-            fontFamily: SANS, fontSize: 11.5, fontWeight: 600, letterSpacing: "0.06em",
-            textTransform: "uppercase", color: notesOpen ? C.surface : C.ink2,
-            background: notesOpen ? C.ink : "transparent",
-            border: `1px solid ${C.ruleStrong}`, padding: "6px 14px", cursor: "pointer",
-          }}
-        >
-          Notes · N
-        </button>
+        {!notesHidden && (
+          <button
+            onClick={() => setNotesOpen((o) => !o)}
+            style={{
+              fontFamily: SANS, fontSize: 11.5, fontWeight: 600, letterSpacing: "0.06em",
+              textTransform: "uppercase", color: notesOpen ? C.surface : C.ink2,
+              background: notesOpen ? C.ink : "transparent",
+              border: `1px solid ${C.ruleStrong}`, padding: "6px 14px", cursor: "pointer",
+            }}
+          >
+            Notes · N
+          </button>
+        )}
       </div>
 
       {/* notes drawer */}
@@ -1113,7 +1116,7 @@ export default function FoothillsDeck() {
           }}
         >
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#8a8a84", marginBottom: 10 }}>
-            Talking points · slide {idx + 1} · press H to hide
+            Talking points · slide {idx + 1} · press H to hide notes UI
           </div>
           {slide.notes.map((n, i) => (
             <p key={i} style={{ fontFamily: SERIF, fontSize: 15.5, lineHeight: 1.6, margin: "0 0 10px" }}>{n}</p>
