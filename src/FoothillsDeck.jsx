@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 
 /* ────────────────────────────────────────────────────────────────
    Foothills Leadership Deck
-   Click / → / space to advance · ← to go back · N toggles notes
+   Click / → / space to advance · ← to go back · N toggles notes · H hides notes
    Palette + type match the Communication Survey report.
 ──────────────────────────────────────────────────────────────── */
 
@@ -1026,6 +1026,7 @@ export default function FoothillsDeck() {
       if (e.key === "ArrowRight" || e.key === " " || e.key === "Enter") { e.preventDefault(); next(); }
       else if (e.key === "ArrowLeft") { e.preventDefault(); prev(); }
       else if (e.key === "n" || e.key === "N") setNotesOpen((o) => !o);
+      else if (e.key === "h" || e.key === "H") setNotesOpen(false);
       else if (e.key === "Home") { setIdx(0); setStep(0); }
     };
     window.addEventListener("keydown", onKey);
@@ -1112,7 +1113,7 @@ export default function FoothillsDeck() {
           }}
         >
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#8a8a84", marginBottom: 10 }}>
-            Talking points · slide {idx + 1}
+            Talking points · slide {idx + 1} · press H to hide
           </div>
           {slide.notes.map((n, i) => (
             <p key={i} style={{ fontFamily: SERIF, fontSize: 15.5, lineHeight: 1.6, margin: "0 0 10px" }}>{n}</p>
